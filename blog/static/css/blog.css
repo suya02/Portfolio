@@ -84,6 +84,7 @@ li {
 .about_B {
     font-size: 4vw;
     color: gray;
+    padding-bottom: 1vh;
 }
 
 .about_text {
@@ -110,5 +111,118 @@ li {
 .section_main {
     text-align: left;
     padding-left: 7vw;
-    padding-top: 12vh;
+    padding-top: 11vh;
+}
+
+/*progress {*/
+/*    -webkit-appearance: none;*/
+/*    border: 0;*/
+/*    border-radius: 9px;*/
+/*}*/
+
+/*::-webkit-progress-bar {*/
+/*    background-color: white;*/
+/*    border-radius:10px;*/
+/*    box-shadow: 0px 0px 10px 0px #969696;*/
+/*}*/
+
+/*::-webkit-progress-value {*/
+/*    background-color: orange;*/
+/*    border-radius:10px;*/
+/*}*/
+
+.progress-bar {
+    background: 50%;
+    border-radius: 3vw;
+    align-items: center;
+    display: flex;
+    height: 1.5vw;
+    padding: 0.2vw 0.2vw;
+    box-shadow: 0px 0px 10px 0px #969696;
+}
+
+.progress-value-80 {
+    border-radius: 100px;
+    background: darkgray;
+    height: 3vh;
+    animation: progress-80 3s normal forwards;
+}
+
+@keyframes progress-80 {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 80%;
+    }
+}
+
+.progress-value-70 {
+    border-radius: 100px;
+    background: darkgray;
+    height: 3vh;
+    animation: progress-70 3s normal forwards;
+}
+
+@keyframes progress-70 {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 70%;
+    }
+}
+
+.progress-value-60 {
+    border-radius: 100px;
+    background: darkgray;
+    height: 3vh;
+    animation: progress-60 3s normal forwards;
+}
+
+@keyframes progress-60 {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 60%;
+    }
+}
+
+.progress-value-40 {
+    border-radius: 100px;
+    background: darkgray;
+    height: 3vh;
+    animation: progress-40 3s normal forwards;
+}
+
+@keyframes progress-40 {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 40%;
+    }
+}
+
+h3 {
+    padding-bottom: 0.6vh;
+    padding-top: 1.5vh;
+}
+
+.project {
+    float: left;
+    background-color: lightgray;
+    border-radius: 3vw;
+    padding: 1vw;
+    height: 50vh;
+    margin-right: 5vw;
+    margin-top: 5vh;
+        margin-bottom: 5vh;
+    width: 20vw;
+}
+
+.project_image {
+    width: 20vw;
+    border-radius: 2vw;
 }
