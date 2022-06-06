@@ -11,6 +11,8 @@
     float : left;
     padding-left: 7vw;
     padding-right: 1vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
     vertical-align: middle;
     line-height: 9vh;
 }
@@ -19,20 +21,20 @@
     float: left;
     vertical-align: middle;
     line-height: 4vh;
-    padding-left: 0;}
+    padding-left: 0;
+}
 
 .logo_text_smaill {
-    font-size: 1.2vw;
+    font-size: 1vw;
 }
 
 .logo_text_big {
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-weight: bold;
 }
 
 li {
     list-style:none;
-    float : left;
     padding-left: 2vw;
 }
 
@@ -41,7 +43,7 @@ li {
     color: black;
     text-decoration:none;
     font-weight: bold;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     float : right;
     vertical-align: middle;
     line-height: 9vh;
@@ -50,7 +52,7 @@ li {
 .main_text {
     text-align: left;
     padding-left: 7vw;
-    padding-top: 10vh;
+    padding-top: 30vh;
 }
 
 .main_text_big {
@@ -62,7 +64,6 @@ li {
     font-weight: bold;
 }
 
-
 .contacts {
     padding-right: 1vw;
     padding-top: 10vw;
@@ -73,4 +74,41 @@ li {
     float: none;
     padding-left: 2vw;
     padding-bottom: 1.5vw;
+}
+
+.about_A {
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+.about_B {
+    font-size: 4vw;
+    color: gray;
+}
+
+.about_text {
+    float: left;
+    width: 50vw;
+    padding-left: 0;
+    font-size: 1.2vw;
+}
+
+.profile {
+    float: left;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    height: 30vh;
+}
+
+.top {
+    display:scroll;
+    position:fixed;
+    bottom: 5vh;
+    right: 5vw;
+}
+
+.section_main {
+    text-align: left;
+    padding-left: 7vw;
+    padding-top: 12vh;
 }
