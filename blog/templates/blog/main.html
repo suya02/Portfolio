@@ -1,26 +1,86 @@
 {% load static %}
 
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Suhyeon's Portfolio</title>
-    <style type="text/css">
-        *{margin:0; padding: 0;}
-        html, body{height: 100%;}
-        .section1{width: 100%; height: 100%; background-color: whitesmoke;}
-        .section2{width: 100%; height: 90%; background-color: white;}
-        .section3{width: 100%; height: 90%; background-color: whitesmoke;}
-    </style>
+<link rel="stylesheet" href="{% static 'css/blog.css' %}" >
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+    var scroll = function(){
 
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}" >
-    <link rel="stylesheet" href="{% static 'images/to_top.png' %}">
-{#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">#}
-{#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">#}
-</head>
-<body>
-    <div class="section1">
-        <header class="top_bar" style="display:scroll; position:fixed;">
+    var $nav = null,
+        $cnt = null,
+        moveCnt = null,
+        moveIndex = 0,
+        moveCntTop = 0,
+        winH = 0,
+        time = false; // 새로 만든 변수
+
+    $(document).ready(function(){
+        init();
+        initEvent();
+    });
+
+    var init = function(){
+        $cnt = $(".content");
+        $nav = $(".header a");
+    };
+
+    var initEvent = function(){
+        $("html ,body").scrollTop(0);
+        winResize();
+        $(window).resize(function(){
+            winResize();
+        });
+        $nav.on("click", function(){
+            moveIndex = $(this).parent("li").index();
+            moving(moveIndex);
+            return false;
+        });
+        $cnt.on("mousewheel", function(e){
+            if(time === false){ // time 변수가 펄스일때만 휠 이벤트 실행
+              wheel(e);
+            }
+        });
+    };
+
+    var winResize = function(){
+        winH = $(window).height();
+        $cnt.children("div").height(winH);
+        $("html ,body").scrollTop(moveIndex.scrollTop);
+    };
+
+    var wheel = function(e){
+        if(e.originalEvent.wheelDelta < 0){
+            if(moveIndex < 3){
+                moveIndex += 1;
+                moving(moveIndex);
+            };
+        }else{
+            if(moveIndex > 0){
+                moveIndex -= 1;
+                moving(moveIndex);
+            };
+        };
+    };
+
+    var moving = function(index){
+        time = true // 휠 이벤트가 실행 동시에 true로 변경
+        moveCnt = $cnt.children("div").eq(index);
+        moveCntTop = moveCnt.offset().top;
+        $("html ,body").stop().animate({
+            scrollTop: moveCntTop
+        }, 1000, function(){
+          time = false; // 휠 이벤트가 끝나면 false로 변경
+        });
+        $nav.parent("li").eq(index).addClass("on").siblings().removeClass("on");
+    };
+
+};
+
+scroll();
+
+</script>
+<div class="header">
+
+ <header class="top_bar" style="display:scroll; position:fixed;">
             <img class="logo" src="static/images/sp_logo.png" />
             <div class="logo_text">
                 <div class="logo_text_smaill">Front-End Development</div>
@@ -28,12 +88,18 @@
             </div>
             <div class="menu">
                 <ui>
-                    <li style="float : left;"><a href="aboutMe">About Me</a></li>
-                    <li style="float : left;"><a href="Portfolio" style="color:black; text-decoration:none; font-weight: bold">Portfolio</a></li>
-                    <li style="float : left;"><a href="Contact" style="color:black; text-decoration:none; font-weight: bold">Contact</a></li>
+                    <li style="float : left;"><a href="aboutMe" class="menu_text">About Me</a></li>
+                    <li style="float : left;"><a href="Portfolio" class="menu_text">Portfolio</a></li>
+                    <li style="float : left;"><a href="Contact" class="menu_text">Contact</a></li>
                 </ui>
             </div>
         </header>
+</div>
+
+<div class="content">
+    <div class="cnt01">
+        <div class="section_gray">
+
 
         <div class="main_text">
             <div class="main_text_big" style="font-weight: bold; color: gray">WELCOME TO MY </div>
@@ -92,9 +158,9 @@
             <img src="static/images/to_top.png" style="width: 2.8vw">
         </a>
     </div>
-    {#section1#}
-
-    <div class="section2">
+    </div>
+    <div class="cnt02">
+        <div class="section_white">
         <div class="section_main">
             <div class="about_A" style="float: left">
                 A
@@ -134,56 +200,10 @@
                 </div>
         </div>
     </div>
-    {#section2#}
-    <div class="section3">
-        <div class="section_main">
-            <div class="about_A" style="float: left">
-                S
-            </div>
-            <div class="about_B">
-                kills
-            </div>
-
-            <div>
-                <div class="about_text">
-{#                    <h2>HTML</h2> <progress value="80" max="100"></progress>#}
-{#                    <h2>CSS</h2> <progress value="80" max="100"></progress>#}
-{#                    <h2>Python</h2> <progress value="80" max="100"></progress>#}
-{#                    <h2>React</h2> <progress value="80" max="100" aria-valuemin="0"></progress>#}
-{#                    <h2>Node.js</h2> <progress value="80" max="100"></progress>#}
-                    <h3>HTML</h3>
-                    <div class="progress-bar">
-                        <div class="progress-value-80"></div>
-                    </div>
-
-                    <h3>CSS</h3>
-                    <div class="progress-bar">
-                        <div class="progress-value-80"></div>
-                    </div>
-
-                    <h3>Python</h3>
-                    <div class="progress-bar">
-                        <div class="progress-value-70"></div>
-                    </div>
-
-                    <h3>Node.js</h3>
-                    <div class="progress-bar">
-                        <div class="progress-value-60"></div>
-                    </div>
-
-                    <h3>React</h3>
-                    <div class="progress-bar">
-                        <div class="progress-value-40"></div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        {#section_main#}
     </div>
-    {#section3#}
+    <div class="cnt03">
 
-    <div class="section2">
+        <div class="section_gray">
         <div class="section_main">
             <div class="about_A" style="float: left">
                 P
@@ -216,9 +236,9 @@
             </div>
         </div>
     </div>
-    {#section2#}
-
-    <div class="section3">
+    </div>
+    <div class="cnt04">
+        <div class="section_white">
         <div class="section_main">
             <div class="about_A" style="float: left">
                 C
@@ -252,5 +272,5 @@
             </table>
         </div>
     </div>
-</body>
-</html>
+    </div>
+</div>
