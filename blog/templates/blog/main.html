@@ -30,7 +30,7 @@
             winResize();
         });
         $nav.on("click", function(){
-            moveIndex = $(this).parent("li").index();
+            moveIndex = $(this).parent("li").index()+1;
             moving(moveIndex);
             return false;
         });
@@ -81,7 +81,7 @@ scroll();
 <div class="header">
 
  <header class="top_bar" style="display:scroll; position:fixed;">
-            <img class="logo" src="static/images/sp_logo.png" />
+            <img class="logo" src="static/images/sp_logo.png" onClick="window.location.href=window.location.href" />
             <div class="logo_text">
                 <div class="logo_text_smaill">Front-End Development</div>
                 <div class="logo_text_big">SuHyeon's Portfolio</div>
