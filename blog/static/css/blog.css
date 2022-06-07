@@ -111,6 +111,7 @@ li {
 .section_main {
     text-align: left;
     padding-left: 7vw;
+    padding-right: 7vw;
     padding-top: 11vh;
 }
 
@@ -216,7 +217,6 @@ h3 {
     border-radius: 3vw;
     padding: 1vw;
     height: 50vh;
-    margin-right: 5vw;
     margin-top: 5vh;
         margin-bottom: 5vh;
     width: 20vw;
@@ -225,4 +225,19 @@ h3 {
 .project_image {
     width: 20vw;
     border-radius: 2vw;
+}
+
+.contact_text_big {
+    font-size: 1.3vw;
+    font-weight: bold;
+
+}
+
+.contact_text_small {
+    font-size: 1.2vw;
+}
+
+td {
+    padding-right: 2vw;
+    padding-top: 2vw;
 }
